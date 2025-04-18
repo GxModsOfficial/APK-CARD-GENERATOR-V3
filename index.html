@@ -1,55 +1,86 @@
-<!-- FORM GENERATOR UNTUK APK CARD -->
-<div style="width:95%;max-width:860px;margin:40px auto;padding:20px;background:#121212;border:1px solid #333;border-radius:16px;color:#fff;">
-  <h2 style="margin-bottom:20px;font-size:1.5rem;text-align:center;">APK Card Generator - GxMods</h2>
-  <form id="apkCardForm">
-    <label>Nama Aplikasi:</label>
-    <input type="text" id="appName" placeholder="Contoh: AnimePlay" required><br><br>
+<!-- FORM GENERATOR UNTUK APK CARD - VERSI MODERN -->
+<div style="width:95%;max-width:860px;margin:40px auto;padding:30px;background:#1e1e1e;border-radius:18px;color:#fff;box-shadow:0 0 12px rgba(0,255,224,0.1);font-family:'Segoe UI', sans-serif;">
+  <h2 style="margin-bottom:24px;font-size:1.8rem;text-align:center;color:#00ffe0;">🛠️ APK Card Generator - GxMods</h2>
+  <form id="apkCardForm" style="display:flex;flex-direction:column;gap:16px;">
+    
+    <div style="display:flex;flex-direction:column;">
+      <label for="appName">Nama Aplikasi</label>
+      <input type="text" id="appName" placeholder="Contoh: AnimePlay" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Developer:</label>
-    <input type="text" id="appDev" placeholder="Contoh: GxMods" required><br><br>
- 
-    <label>Link Developer:</label>
-    <input type="text" id="devLink" placeholder="Contoh: https://gxmods.id/" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="appDev">Developer</label>
+      <input type="text" id="appDev" placeholder="Contoh: GxMods" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Icon URL:</label>
-    <input type="text" id="iconUrl" placeholder="URL Gambar Icon" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="devLink">Link Developer</label>
+      <input type="text" id="devLink" placeholder="Contoh: https://gxmods.id/" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Rating:</label>
-    <input type="text" id="appRating" placeholder="Contoh: 4,9" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="iconUrl">Icon URL</label>
+      <input type="text" id="iconUrl" placeholder="URL Gambar Icon" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Jumlah Ulasan:</label>
-    <input type="text" id="appReviews" placeholder="Contoh: 60,9 rb" required><br><br>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div>
+        <label for="appRating">Rating</label>
+        <input type="text" id="appRating" placeholder="4,9" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+      <div>
+        <label for="appReviews">Ulasan</label>
+        <input type="text" id="appReviews" placeholder="60,9 rb" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+      <div>
+        <label for="appDownloads">Unduhan</label>
+        <input type="text" id="appDownloads" placeholder="1 jt+" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+    </div>
 
-    <label>Jumlah Unduhan:</label>
-    <input type="text" id="appDownloads" placeholder="Contoh: 1 jt+" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="appDesc">Deskripsi Singkat</label>
+      <textarea id="appDesc" placeholder="Tulis deskripsi aplikasi" required style="padding:12px;height:100px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;"></textarea>
+    </div>
 
-    <label>Deskripsi Singkat:</label>
-    <textarea id="appDesc" placeholder="Tulis deskripsi aplikasi" required></textarea><br><br>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div>
+        <label for="appVersion">Versi</label>
+        <input type="text" id="appVersion" placeholder="1.1.4" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+      <div>
+        <label for="appSize">Ukuran</label>
+        <input type="text" id="appSize" placeholder="14MB" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+      <div>
+        <label for="appDate">Update</label>
+        <input type="text" id="appDate" placeholder="10 Agu 2024" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+      </div>
+    </div>
 
-    <label>Versi:</label>
-    <input type="text" id="appVersion" placeholder="Contoh: 1.1.4" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="modFeatures">Fitur MOD (pisahkan dengan koma)</label>
+      <input type="text" id="modFeatures" placeholder="Contoh: Premium Unlock, NO Ads" style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Ukuran APK:</label>
-    <input type="text" id="appSize" placeholder="Contoh: 14MB" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="downloadLink">Link Download</label>
+      <input type="text" id="downloadLink" placeholder="URL file APK MOD" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
+    </div>
 
-    <label>Tanggal Update:</label>
-    <input type="text" id="appDate" placeholder="Contoh: 10 Agu 2024" required><br><br>
+    <div style="display:flex;flex-direction:column;">
+      <label for="screenshots">Screenshot URLs (pisahkan dengan koma)</label>
+      <textarea id="screenshots" placeholder="Contoh: https://img1.jpg, https://img2.jpg" style="padding:12px;height:80px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;"></textarea>
+    </div>
 
-    <label>MOD Features (pisahkan dengan koma):</label>
-    <input type="text" id="modFeatures" placeholder="Contoh: Premium Unlock, NO Ads"><br><br>
-
-    <label>Link Download:</label>
-    <input type="text" id="downloadLink" placeholder="URL file APK MOD" required><br><br>
-
-    <label>Screenshot URLs (pisahkan dengan koma):</label>
-    <textarea id="screenshots" placeholder="Contoh: https://img1.jpg, https://img2.jpg"></textarea><br><br>
-
-    <button type="button" onclick="generateAPKCard()" style="padding:10px 20px;background:#00ffe0;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;">Generate APK Card</button>
-    <button type="button" onclick="copyToClipboard()" style="padding:10px 20px;margin-left:10px;background:#4fc3f7;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;">Salin ke Clipboard</button>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
+      <button type="button" onclick="generateAPKCard()" style="padding:12px 24px;background:#00ffe0;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;transition:.3s;">🔧 Generate</button>
+      <button type="button" onclick="copyToClipboard()" style="padding:12px 24px;background:#4fc3f7;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;transition:.3s;">📋 Salin</button>
+    </div>
   </form>
 
-  <h3 style="margin-top:30px;">Hasil Kode HTML:</h3>
-  <textarea id="outputHTML" style="width:100%;height:600px;padding:10px;background:#1a1a1a;color:#00ffe0;font-family:monospace;border-radius:12px;"></textarea>
+  <h3 style="margin-top:32px;color:#4fc3f7;font-size:1.2rem;">📄 Hasil Kode HTML:</h3>
+  <textarea id="outputHTML" style="width:100%;height:600px;margin-top:10px;padding:14px;background:#121212;color:#00ffe0;font-family:monospace;border:none;border-radius:12px;"></textarea>
 </div>
 
 <script>
@@ -143,4 +174,22 @@ function copyToClipboard() {
   document.execCommand("copy");
   alert("Kode HTML telah disalin!");
 }
+
+// Fungsi menyimpan semua input ke localStorage saat diubah
+document.querySelectorAll("#apkCardForm input, #apkCardForm textarea").forEach(input => {
+  input.addEventListener("input", () => {
+    localStorage.setItem(input.id, input.value);
+  });
+});
+
+// Fungsi untuk memuat kembali data dari localStorage saat halaman dibuka
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#apkCardForm input, #apkCardForm textarea").forEach(input => {
+    const savedValue = localStorage.getItem(input.id);
+    if (savedValue !== null) {
+      input.value = savedValue;
+    }
+  });
+});
+
 </script>

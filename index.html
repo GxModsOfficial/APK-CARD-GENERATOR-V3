@@ -4,9 +4,36 @@
   <meta charset="UTF-8">
   <title>Generator Deskripsi YouTube Variatif</title>
   <style>
-    body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; background: #f9f9f9; }
-    input, select, textarea, button { width: 100%; margin-top: 10px; padding: 10px; font-size: 1em; }
-    #hasil { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; white-space: pre-wrap; }
+    body {
+      font-family: sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+    }
+    #hasil {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+    #copyBtn {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #copyBtn:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
@@ -40,6 +67,7 @@
   <button onclick="generate()">Generate Deskripsi</button>
 
   <div id="hasil"></div>
+  <button id="copyBtn" onclick="copyToClipboard()">Copy ke Clipboard</button>
 
   <script>
     function generate() {
@@ -50,41 +78,50 @@
       const pakaiPin = document.getElementById("komentarPin").value === "ya";
       const link = document.getElementById("link").value;
 
-      const pinText = pakaiPin ? "Cek komentar yang dipin ya!" : Download di sini: ${link};
-      const tag = #${app.replace(/\s/g, '')}MOD;
+      const pinText = pakaiPin ? "Cek komentar yang dipin ya!" : `Download di sini: ${link}`;
+      const tag = `#${app.replace(/\s/g, '')}MOD`;
 
       let hasil = "";
 
       if (gaya === "seri") {
-        hasil = 🎬 Di video kali ini, gue bahas ${app} MOD APK versi ${versi}. Aplikasi ini punya fitur unggulan seperti: ${fitur}.  
+        hasil = `🎬 Di video kali ini, gue bahas ${app} MOD APK versi ${versi}. Aplikasi ini punya fitur unggulan seperti: ${fitur}.  
 Cocok buat kamu yang suka edit foto dengan hasil profesional dan tampil beda.
 
 📌 Info selengkapnya: ${pinText}
 
 ⚠️ Video ini hanya untuk edukasi & review. Dukung pengembang dengan membeli versi resmi.
 
-#${app.replace(/\s/g,'')} #${tag} #EditDengan${app.replace(/\s/g,'')} #MODAPK;
+#${app.replace(/\s/g,'')} ${tag} #EditDengan${app.replace(/\s/g,'')} #MODAPK`;
       } else if (gaya === "santai") {
-        hasil = Lu pernah coba ${app}? Di video ini gue pake versi MOD ${versi} yang punya fitur: ${fitur}.  
+        hasil = `Lu pernah coba ${app}? Di video ini gue pake versi MOD ${versi} yang punya fitur: ${fitur}.  
 Gampang banget, tinggal pilih efek dan langsung jadi kartun kek di Pixar!
 
 📌 ${pinText}
 
 *Konten ini cuma buat edukasi, bukan ngajarin pakai ilegal. Dukung pengembang dengan beli versi aslinya ya.*
 
-#${tag} #${app.replace(/\s/g,'')}TanpaIklan #AnimeStyle;
+${tag} #${app.replace(/\s/g,'')}TanpaIklan #AnimeStyle`;
       } else {
-        hasil = Baru update! ${app} MOD APK versi ${versi} hadir dengan fitur: ${fitur}.  
+        hasil = `Baru update! ${app} MOD APK versi ${versi} hadir dengan fitur: ${fitur}.  
 Di video ini gue bahas apa aja yang baru & cara pakenya.
 
 Link download? ${pinText}
 
 Konten ini hanya untuk edukasi. Kalau kamu suka, beli versi original buat support developernya.
 
-#${tag} #Update${app.replace(/\s/g,'')} #MODAPK2025;
+${tag} #Update${app.replace(/\s/g,'')} #MODAPK2025`;
       }
 
       document.getElementById("hasil").innerText = hasil;
+    }
+
+    function copyToClipboard() {
+      const text = document.getElementById("hasil").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Deskripsi berhasil disalin ke clipboard!");
+      }).catch(err => {
+        alert("Gagal menyalin teks: " + err);
+      });
     }
   </script>
 </body>

@@ -1,195 +1,91 @@
-<!-- FORM GENERATOR UNTUK APK CARD - VERSI MODERN -->
-<div style="width:95%;max-width:860px;margin:40px auto;padding:30px;background:#1e1e1e;border-radius:18px;color:#fff;box-shadow:0 0 12px rgba(0,255,224,0.1);font-family:'Segoe UI', sans-serif;">
-  <h2 style="margin-bottom:24px;font-size:1.8rem;text-align:center;color:#00ffe0;">🛠️ APK Card Generator - GxMods</h2>
-  <form id="apkCardForm" style="display:flex;flex-direction:column;gap:16px;">
-    
-    <div style="display:flex;flex-direction:column;">
-      <label for="appName">Nama Aplikasi</label>
-      <input type="text" id="appName" placeholder="Contoh: AnimePlay" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Generator Deskripsi YouTube Variatif</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; background: #f9f9f9; }
+    input, select, textarea, button { width: 100%; margin-top: 10px; padding: 10px; font-size: 1em; }
+    #hasil { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>Generator Deskripsi YouTube Variatif</h2>
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="appDev">Developer</label>
-      <input type="text" id="appDev" placeholder="Contoh: GxMods" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+  <label>Nama Aplikasi:</label>
+  <input id="appName" placeholder="Contoh: ToonApp">
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="devLink">Link Developer</label>
-      <input type="text" id="devLink" placeholder="Contoh: https://gxmods.id/" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+  <label>Versi/Update:</label>
+  <input id="appVersion" placeholder="Contoh: 2025, v1.6.0, Update April">
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="iconUrl">Icon URL</label>
-      <input type="text" id="iconUrl" placeholder="URL Gambar Icon" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+  <label>Fitur Unggulan (pisahkan koma):</label>
+  <input id="fitur" placeholder="Contoh: Tanpa watermark, Full effect, Anime style">
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-      <div>
-        <label for="appRating">Rating</label>
-        <input type="text" id="appRating" placeholder="4,9" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-      <div>
-        <label for="appReviews">Ulasan</label>
-        <input type="text" id="appReviews" placeholder="60,9 rb" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-      <div>
-        <label for="appDownloads">Unduhan</label>
-        <input type="text" id="appDownloads" placeholder="1 jt+" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-    </div>
+  <label>Pilih Gaya Deskripsi:</label>
+  <select id="gaya">
+    <option value="seri">Serius & Informatif</option>
+    <option value="santai">Santai & Gaul</option>
+    <option value="update">Fokus Update Terbaru</option>
+  </select>
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="appDesc">Deskripsi Singkat</label>
-      <textarea id="appDesc" placeholder="Tulis deskripsi aplikasi" required style="padding:12px;height:100px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;"></textarea>
-    </div>
+  <label>Gunakan komentar pin untuk link?</label>
+  <select id="komentarPin">
+    <option value="ya">Ya</option>
+    <option value="tidak">Tidak</option>
+  </select>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-      <div>
-        <label for="appVersion">Versi</label>
-        <input type="text" id="appVersion" placeholder="1.1.4" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-      <div>
-        <label for="appSize">Ukuran</label>
-        <input type="text" id="appSize" placeholder="14MB" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-      <div>
-        <label for="appDate">Update</label>
-        <input type="text" id="appDate" placeholder="10 Agu 2024" required style="padding:10px;width:100%;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-      </div>
-    </div>
+  <label>Link Download (jika tidak pakai pin):</label>
+  <input id="link" placeholder="https://example.com/link">
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="modFeatures">Fitur MOD (pisahkan dengan koma)</label>
-      <input type="text" id="modFeatures" placeholder="Contoh: Premium Unlock, NO Ads" style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+  <button onclick="generate()">Generate Deskripsi</button>
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="downloadLink">Link Download</label>
-      <input type="text" id="downloadLink" placeholder="URL file APK MOD" required style="padding:10px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;">
-    </div>
+  <div id="hasil"></div>
 
-    <div style="display:flex;flex-direction:column;">
-      <label for="screenshots">Screenshot URLs (pisahkan dengan koma)</label>
-      <textarea id="screenshots" placeholder="Contoh: https://img1.jpg, https://img2.jpg" style="padding:12px;height:80px;border-radius:8px;border:none;background:#2a2a2a;color:#fff;"></textarea>
-    </div>
+  <script>
+    function generate() {
+      const app = document.getElementById("appName").value;
+      const versi = document.getElementById("appVersion").value;
+      const fitur = document.getElementById("fitur").value;
+      const gaya = document.getElementById("gaya").value;
+      const pakaiPin = document.getElementById("komentarPin").value === "ya";
+      const link = document.getElementById("link").value;
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
-      <button type="button" onclick="generateAPKCard()" style="padding:12px 24px;background:#00ffe0;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;transition:.3s;">🔧 Generate</button>
-      <button type="button" onclick="copyToClipboard()" style="padding:12px 24px;background:#4fc3f7;color:#000;font-weight:bold;border:none;border-radius:8px;cursor:pointer;transition:.3s;">📋 Salin</button>
-    </div>
-  </form>
+      const pinText = pakaiPin ? "Cek komentar yang dipin ya!" : Download di sini: ${link};
+      const tag = #${app.replace(/\s/g, '')}MOD;
 
-  <h3 style="margin-top:32px;color:#4fc3f7;font-size:1.2rem;">📄 Hasil Kode HTML:</h3>
-  <textarea id="outputHTML" style="width:100%;height:600px;margin-top:10px;padding:14px;background:#121212;color:#00ffe0;font-family:monospace;border:none;border-radius:12px;"></textarea>
-</div>
+      let hasil = "";
 
-<script>
-function generateAPKCard() {
-  const appName = document.getElementById("appName").value;
-  const appDev = document.getElementById("appDev").value;
-  const devLink = document.getElementById("devLink").value;
-  const iconUrl = document.getElementById("iconUrl").value;
-  const appRating = document.getElementById("appRating").value;
-  const appReviews = document.getElementById("appReviews").value;
-  const appDownloads = document.getElementById("appDownloads").value;
-  const appDesc = document.getElementById("appDesc").value;
-  const appVersion = document.getElementById("appVersion").value;
-  const appSize = document.getElementById("appSize").value;
-  const appDate = document.getElementById("appDate").value;
-  const modFeatures = document.getElementById("modFeatures").value.split(',').map(f => f.trim()).filter(f => f);
-  const screenshots = document.getElementById("screenshots").value.split(',').map(f => f.trim()).filter(f => f);
-  const downloadLink = document.getElementById("downloadLink").value;
+      if (gaya === "seri") {
+        hasil = 🎬 Di video kali ini, gue bahas ${app} MOD APK versi ${versi}. Aplikasi ini punya fitur unggulan seperti: ${fitur}.  
+Cocok buat kamu yang suka edit foto dengan hasil profesional dan tampil beda.
 
-  let screenshotHTML = screenshots.map((src, i) => `<img src="${src}" alt="Screenshot ${i + 1}" onclick="openLightbox(${i})">`).join('\n');
-  let modHTML = modFeatures.map(f => `<span class="apk-tag">${f}</span>`).join(' ');
+📌 Info selengkapnya: ${pinText}
 
-  const htmlOutput = `<!-- BEGIN APK CARD GENERATED -->
-<div class="apk-post-card">
-  <div class="apk-header">
-    <img alt="App Icon" class="apk-icon" src="${iconUrl}" />
-    <div class="apk-title-area">
-      <div class="apk-title">${appName} <img alt="Verified" class="verified-icon" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" /></div>
-      <div class="apk-developer">by <a href="${devLink}" target="_blank" style="color:#4fc3f7;text-decoration:none;">${appDev}</a></div>
-    </div>
-  </div>
+⚠️ Video ini hanya untuk edukasi & review. Dukung pengembang dengan membeli versi resmi.
 
-  <div class="stat-box" style="display: flex; gap: 12px; margin-top: 16px;">
-    <div class="stat-item" style="text-align:center;">
-      <div class="stat-value" style="font-size: 1.1rem; font-weight: bold;">${appRating}</div>
-      <div class="stat-label" style="font-size: 0.8rem; color: #aaa;">Rating</div>
-    </div>
-    <div class="stat-item" style="text-align:center;">
-      <div class="stat-value" style="font-size: 1.1rem; font-weight: bold;">${appReviews}</div>
-      <div class="stat-label" style="font-size: 0.8rem; color: #aaa;">Ulasan</div>
-    </div>
-    <div class="stat-item" style="text-align:center;">
-      <div class="stat-value" style="font-size: 1.1rem; font-weight: bold;">${appDownloads}</div>
-      <div class="stat-label" style="font-size: 0.8rem; color: #aaa;">Unduhan</div>
-    </div>
-  </div>
+#${app.replace(/\s/g,'')} #${tag} #EditDengan${app.replace(/\s/g,'')} #MODAPK;
+      } else if (gaya === "santai") {
+        hasil = Lu pernah coba ${app}? Di video ini gue pake versi MOD ${versi} yang punya fitur: ${fitur}.  
+Gampang banget, tinggal pilih efek dan langsung jadi kartun kek di Pixar!
 
-  <marquee scrollamount="6" style="background:#212121; color:#ffeb3b; padding:10px; font-size:15px; margin: 20px 0;">
-    📢 PERHATIAN! Jangan langsung klik download! Baca info MOD & panduan instalasi untuk menghindari masalah!
-  </marquee>
+📌 ${pinText}
 
-  <div class="apk-section-title">Deskripsi</div>
-  <div class="apk-description">${appDesc}</div>
+*Konten ini cuma buat edukasi, bukan ngajarin pakai ilegal. Dukung pengembang dengan beli versi aslinya ya.*
 
-  <div class="apk-section-title">Screenshot</div>
-  <div class="apk-screenshots">${screenshotHTML}</div>
+#${tag} #${app.replace(/\s/g,'')}TanpaIklan #AnimeStyle;
+      } else {
+        hasil = Baru update! ${app} MOD APK versi ${versi} hadir dengan fitur: ${fitur}.  
+Di video ini gue bahas apa aja yang baru & cara pakenya.
 
-  <div class="apk-section-title"><b>Info APK</b></div>
-  <div class="apk-info">
-    <span>Versi: ${appVersion}</span>
-    <span>Ukuran: ${appSize}</span>
-    <span>Update: ${appDate}</span>
-    <span>Support ALL Devices</span>
-  </div>
+Link download? ${pinText}
 
-  <div class="apk-section-title"><b>Fitur MOD</b></div>
-  <div class="apk-tags">${modHTML}</div>
+Konten ini hanya untuk edukasi. Kalau kamu suka, beli versi original buat support developernya.
 
-  <div class="apk-buttons">
-    <a class="download-button" href="#" onclick="startDownload(event, '${downloadLink}')">
-      <svg fill="none" height="20" stroke="currentColor" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-      </svg>
-      <span>Download MOD APK</span>
-    </a>
-    <div class="spinner-area">
-      <div class="spinner"></div>
-      <div class="downloading-text">Mengunduh file…</div>
-    </div>
-  </div>
-</div>
-<!-- END APK CARD -->`;
+#${tag} #Update${app.replace(/\s/g,'')} #MODAPK2025;
+      }
 
-  document.getElementById("outputHTML").value = htmlOutput;
-}
-
-function copyToClipboard() {
-  const output = document.getElementById("outputHTML");
-  output.select();
-  output.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Kode HTML telah disalin!");
-}
-
-// Fungsi menyimpan semua input ke localStorage saat diubah
-document.querySelectorAll("#apkCardForm input, #apkCardForm textarea").forEach(input => {
-  input.addEventListener("input", () => {
-    localStorage.setItem(input.id, input.value);
-  });
-});
-
-// Fungsi untuk memuat kembali data dari localStorage saat halaman dibuka
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("#apkCardForm input, #apkCardForm textarea").forEach(input => {
-    const savedValue = localStorage.getItem(input.id);
-    if (savedValue !== null) {
-      input.value = savedValue;
+      document.getElementById("hasil").innerText = hasil;
     }
-  });
-});
-
-</script>
+  </script>
+</body>
+</html>

@@ -2,126 +2,60 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Generator Deskripsi YouTube Variatif</title>
+  <title>VIP Token Generator - GxMods</title>
   <style>
-    body {
-      font-family: sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      background: #f9f9f9;
-    }
-    input, select, textarea, button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 1em;
-    }
-    #hasil {
-      margin-top: 20px;
-      background: #fff;
-      padding: 15px;
-      border: 1px solid #ccc;
-      white-space: pre-wrap;
-    }
-    #copyBtn {
-      margin-top: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    #copyBtn:hover {
-      background-color: #45a049;
-    }
+    body { font-family: sans-serif; background: #f4f4f4; padding: 30px; }
+    h2 { color: #333; }
+    .container { background: #fff; padding: 20px; border-radius: 8px; width: 400px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 10px; }
+    select, input, button, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #4CAF50; color: white; cursor: pointer; }
+    button:hover { background: #45a049; }
+    textarea { height: 60px; }
   </style>
 </head>
 <body>
-  <h2>Generator Deskripsi YouTube Variatif</h2>
+  <div class="container">
+    <h2>🔐 VIP Token Generator</h2>
+    <label for="level">Pilih Level VIP:</label>
+    <select id="level">
+      <option value="1">Level 1</option>
+      <option value="2">Level 2</option>
+      <option value="3" selected>Level 3</option>
+    </select>
 
-  <label>Nama Aplikasi:</label>
-  <input id="appName" placeholder="Contoh: ToonApp">
+    <label for="duration">Durasi (dalam bulan):</label>
+    <select id="duration">
+      <option value="1">1 Bulan</option>
+      <option value="3">3 Bulan</option>
+      <option value="12" selected>1 Tahun</option>
+      <option value="24">2 Tahun</option>
+    </select>
 
-  <label>Versi/Update:</label>
-  <input id="appVersion" placeholder="Contoh: 2025, v1.6.0, Update April">
+    <label for="result">Token VIP:</label>
+    <textarea id="result" readonly></textarea>
 
-  <label>Fitur Unggulan (pisahkan koma):</label>
-  <input id="fitur" placeholder="Contoh: Tanpa watermark, Full effect, Anime style">
-
-  <label>Pilih Gaya Deskripsi:</label>
-  <select id="gaya">
-    <option value="seri">Serius & Informatif</option>
-    <option value="santai">Santai & Gaul</option>
-    <option value="update">Fokus Update Terbaru</option>
-  </select>
-
-  <label>Gunakan komentar pin untuk link?</label>
-  <select id="komentarPin">
-    <option value="ya">Ya</option>
-    <option value="tidak">Tidak</option>
-  </select>
-
-  <label>Link Download (jika tidak pakai pin):</label>
-  <input id="link" placeholder="https://example.com/link">
-
-  <button onclick="generate()">Generate Deskripsi</button>
-
-  <div id="hasil"></div>
-  <button id="copyBtn" onclick="copyToClipboard()">Copy ke Clipboard</button>
+    <button onclick="generate()">🔁 Generate Token</button>
+    <button onclick="copy()">📋 Copy Token</button>
+  </div>
 
   <script>
     function generate() {
-      const app = document.getElementById("appName").value;
-      const versi = document.getElementById("appVersion").value;
-      const fitur = document.getElementById("fitur").value;
-      const gaya = document.getElementById("gaya").value;
-      const pakaiPin = document.getElementById("komentarPin").value === "ya";
-      const link = document.getElementById("link").value;
-
-      const pinText = pakaiPin ? "Cek komentar yang dipin ya!" : `Download di sini: ${link}`;
-      const tag = `#${app.replace(/\s/g, '')}MOD`;
-
-      let hasil = "";
-
-      if (gaya === "seri") {
-        hasil = `🎬 Di video kali ini, gue bahas ${app} MOD APK versi ${versi}. Aplikasi ini punya fitur unggulan seperti: ${fitur}.  
-Cocok buat kamu yang suka edit foto dengan hasil profesional dan tampil beda.
-
-📌 Info selengkapnya: ${pinText}
-
-⚠️ Video ini hanya untuk edukasi & review. Dukung pengembang dengan membeli versi resmi.
-
-#${app.replace(/\s/g,'')} ${tag} #EditDengan${app.replace(/\s/g,'')} #MODAPK`;
-      } else if (gaya === "santai") {
-        hasil = `Lu pernah coba ${app}? Di video ini gue pake versi MOD ${versi} yang punya fitur: ${fitur}.  
-Gampang banget, tinggal pilih efek dan langsung jadi kartun kek di Pixar!
-
-📌 ${pinText}
-
-*Konten ini cuma buat edukasi, bukan ngajarin pakai ilegal. Dukung pengembang dengan beli versi aslinya ya.*
-
-${tag} #${app.replace(/\s/g,'')}TanpaIklan #AnimeStyle`;
-      } else {
-        hasil = `Baru update! ${app} MOD APK versi ${versi} hadir dengan fitur: ${fitur}.  
-Di video ini gue bahas apa aja yang baru & cara pakenya.
-
-Link download? ${pinText}
-
-Konten ini hanya untuk edukasi. Kalau kamu suka, beli versi original buat support developernya.
-
-${tag} #Update${app.replace(/\s/g,'')} #MODAPK2025`;
-      }
-
-      document.getElementById("hasil").innerText = hasil;
+      const level = document.getElementById('level').value;
+      const duration = document.getElementById('duration').value;
+      const baseId = "39720843761";
+      const raw = `${baseId}_${level}_${duration}`;
+      const b64 = btoa(raw);
+      const encoded = encodeURIComponent(b64);
+      document.getElementById('result').value = encoded;
     }
 
-    function copyToClipboard() {
-      const text = document.getElementById("hasil").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Deskripsi berhasil disalin ke clipboard!");
-      }).catch(err => {
-        alert("Gagal menyalin teks: " + err);
-      });
+    function copy() {
+      const text = document.getElementById('result');
+      text.select();
+      text.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("✅ Token disalin ke clipboard!");
     }
   </script>
 </body>
